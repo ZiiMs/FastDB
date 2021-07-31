@@ -7,6 +7,7 @@
     "esModuleInterop": true,
     "noImplicitAny": true,
     "sourceMap": true,
+    "strict": true,
     "baseUrl": ".",
     "outDir": "dist",
     "moduleResolution": "node",
@@ -16,6 +17,7 @@
     }
   },
   "include": [
-    "src/**/*"
-  ]
+    "src/**/*",
+    "main/**/*"
+, "main/index.ts", "main/preload.tsx", "webpack.main.config.js"  ]
 }
