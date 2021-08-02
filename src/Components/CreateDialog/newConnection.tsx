@@ -18,11 +18,12 @@ import {
     NumberInputStepper,
 } from '@chakra-ui/react'
 import React, { FC, FormEvent, useEffect, useRef, useState } from 'react'
+import { ConnectionInfo } from '../../interfaces/data'
 
 const NewConnection: FC = () => {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const [name, setName] = useState('')
-    const [address, setAddress] = useState('')
+    const [address, setAddress] = useState('localhost')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [port, setPort] = useState(27017)
@@ -51,14 +52,9 @@ const NewConnection: FC = () => {
         e: FormEvent<HTMLFormElement | HTMLButtonElement>
     ) => {
         e.preventDefault()
-        window.api.send(
-            'addNewConnection',
-            name,
-            address,
-            port,
-            username,
-            password
-        )
+        const data: ConnectionInfo = { name, address, port, username, password }
+        window.api.send('addNewConnection', data)
+        setOpen(false)
     }
 
     return (

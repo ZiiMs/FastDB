@@ -31,6 +31,7 @@ const NavItem: FC<any> = (props: any) => {
                     mr="2"
                     boxSize="4"
                     as={icon}
+                    color="green.400"
                     _groupHover={{
                         color: useColorModeValue('gray.600', 'gray.100'),
                     }}
